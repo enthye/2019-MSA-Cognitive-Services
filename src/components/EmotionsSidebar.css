@@ -6,9 +6,10 @@
 .title{
     background-color: #ae93b9;
     text-align: center;
+    font-family: "Verdana";
 }
 
-.emotionName{
+.emotion-name{
     text-align: center;
 }
 
@@ -21,4 +22,10 @@
     align-content: center;
     display: block;
     font-size: 20px;
+}
+
+.webcam{
+    text-align: center;
+    padding-bottom: 30px; /*16:9*/
+    padding-top: 30px; 
 }
