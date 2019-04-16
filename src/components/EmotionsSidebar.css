@@ -2,3 +2,23 @@
     background: #5D2874;
     width: 20%;
 }
+
+.title{
+    background-color: #ae93b9;
+    text-align: center;
+}
+
+.emotionName{
+    text-align: center;
+}
+
+.button{
+    background-color: #ae93b9;
+    border: 0;
+    margin: 10px;
+    width: 90%;
+    height: 50px;
+    align-content: center;
+    display: block;
+    font-size: 20px;
+}

@@ -3,9 +3,18 @@ import Sidebar from 'react-sidebar'
 import './EmotionsSidebar.css'
 
 export default class EmotionsSidebar extends React.Component {
-    changeEmotion = emotion => {
-        this.props.onSetEmotionText(emotion)
-    }
+    constructor() {
+        super()
+        this.state={
+          emotion: "Happy"
+        }
+      }
+    
+      setEmotionText(emotion){
+        this.setState(state=>({
+          emotion: emotion
+        }))
+      }
 
     render() {
         return (
@@ -14,15 +23,24 @@ export default class EmotionsSidebar extends React.Component {
                     sidebarClassName="sidebar"
                     sidebar={
                         <div>
-                            <b>Emotion List</b>
-                            <button onClick={() => this.changeEmotion("Happy")}>Happy</button>
-                            <button onClick={() => this.changeEmotion("Sad")}>Sad</button>
-                            <button onClick={() => this.changeEmotion("Angry")}>Angry</button>
-                            <button onClick={() => this.changeEmotion("Scared")}>Scared</button>
+                            <h1 className="title">Emotion List</h1>
+                            <div className="btngroup">
+                            <button className="button" onClick={() => this.setEmotionText("Happy")}>
+                            <span role="img" aria-label="Smile">🙂</span> Happy</button>
+                            <button className="button" onClick={() => this.setEmotionText("Sad")}>
+                            <span role="img" aria-label="Sad">🙁</span> Sad</button>
+                            <button className="button" onClick={() => this.setEmotionText("Angry")}>
+                            <span role="img" aria-label="Angry">😠</span> Angry</button>
+                            <button className="button" onClick={() => this.setEmotionText("Scared")}>
+                            <span role="img" aria-label="Scared">😨</span> Scared</button>
+                            </div>
+                            
                         </div>
                         }
-                    open={true}
-                />
+                    docked={true}
+                >
+                    <h1 className="emotionName">{this.state.emotion}</h1>
+                </Sidebar>
             </div>
                 )
             }
