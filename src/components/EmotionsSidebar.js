@@ -3,8 +3,8 @@ import Sidebar from 'react-sidebar'
 import './EmotionsSidebar.css'
 
 export default class EmotionsSidebar extends React.Component {
-    changeEmotion(emotion){
-        this.props.setEmotionText(emotion)
+    changeEmotion = emotion => {
+        this.props.onSetEmotionText(emotion)
     }
 
     render() {
@@ -14,11 +14,11 @@ export default class EmotionsSidebar extends React.Component {
                     sidebarClassName="sidebar"
                     sidebar={
                         <div>
-                            <b>Sidebar content</b>
-                            <button onClick={this.changeEmotion("Happy")}>Happy</button>
-                            <button onClick={this.changeEmotion("Sad")}>Sad</button>
-                            <button onClick={this.changeEmotion("Angry")}>Angry</button>
-                            <button onClick={this.changeEmotion("Scared")}>Scared</button>
+                            <b>Emotion List</b>
+                            <button onClick={() => this.changeEmotion("Happy")}>Happy</button>
+                            <button onClick={() => this.changeEmotion("Sad")}>Sad</button>
+                            <button onClick={() => this.changeEmotion("Angry")}>Angry</button>
+                            <button onClick={() => this.changeEmotion("Scared")}>Scared</button>
                         </div>
                         }
                     open={true}

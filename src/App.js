@@ -6,9 +6,8 @@ class App extends Component {
   constructor() {
     super()
     this.state={
-      emotion: "Happy"
+      emotion: ""
     }
-    this.setEmotionText = this.setEmotionText.bind(this);
   }
 
   setEmotionText(emotion){
@@ -21,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <EmotionsSidebar className="sidebar" setEmotionText={(emotion)=>{this.setEmotionText(emotion)}}/>
+          <EmotionsSidebar className="sidebar" onSetEmotionText={(emotion)=>{this.setEmotionText(emotion)}}/>
         </div>
         <h1>{this.state.emotion}</h1>
       </div>
