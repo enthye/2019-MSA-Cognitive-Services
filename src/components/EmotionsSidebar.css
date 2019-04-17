@@ -1,16 +1,11 @@
 .sidebar{
     background: #5D2874;
-    width: 20%;
 }
 
-.title{
+.title, .emotion-name{
     background-color: #ae93b9;
     text-align: center;
     font-family: "Verdana";
-}
-
-.emotion-name{
-    text-align: center;
 }
 
 .button{
@@ -26,6 +21,14 @@
 
 .webcam{
     text-align: center;
-    padding-bottom: 30px; /*16:9*/
-    padding-top: 30px; 
+}
+
+.record, .hint{
+    background-color: #ae93b9;
+    border: 0;
+    margin: 20px;
+    width: 30%;
+    height: 50px;
+    display:inline-block;
+    font-size: 20px;
 }

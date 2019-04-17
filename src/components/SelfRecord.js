@@ -21,7 +21,7 @@ export default class SelfRecord extends React.Component {
             const image = this.webcam.getScreenshot()
             const byteArrayImage = this.convertToByteArray(image)
             this.fetchData(byteArrayImage)
-        }, 5000)
+        }, 10000)
     }
 
     convertToByteArray = (image) => {
@@ -44,33 +44,24 @@ export default class SelfRecord extends React.Component {
                         var emotion = this.emotionAnalyser(data[0].faceAttributes.emotion)
                         this.props.updateResult(emotion)
                     }
-
-                   //var happiness = (data[0] != null ? data[0].faceAttributes.emotions.happiness : 0)
-                    //happiness = (Math.round(happiness * 100))
-                    
-/*
-                    if (this.isCapturing && happiness < 100) {
-                        this.props.emotionsArray(happiness)
-                    } else {
-                        clearInterval(this.timerId)
-                        this.isCapturing = false
-                        this.props.emotionsArray(100)
-                    }
-                    */
                 })
             }
         })
     }
 
     emotionAnalyser = emotionsArray => {
-        for (var emotion in emotionsArray){
-            console.log(emotion)
-            var value = Math.round(emotionsArray[emotion]) * 100
-            console.log(value)
-            if (this.isRecording && value >= 100) {
-                return emotion
+        var value = 0
+        var emotionOutput = "none"
+
+        for (var emotion in emotionsArray) {
+            var valueEmotion = emotionsArray[emotion]
+            if (this.isRecording && (valueEmotion > value)) {
+                emotionOutput = emotion
+                value = valueEmotion
             }
         }
+
+        return emotionOutput
     }
 
     render() {
@@ -91,7 +82,11 @@ export default class SelfRecord extends React.Component {
                     screenshotFormat="image/jpeg"
                     videoConstraints={videoConstraints}
                 />
-                <button onClick={this.startRecording}>Start Recording!</button>
+                <div className="button-group">
+                    <button className="record" onClick={this.startRecording}>Start Recording!</button>
+                    <button className="hint" onClick={this.props.showHint}>Hint</button>
+                </div>
+
             </div>
         )
     }

@@ -32,8 +32,8 @@ export default class EmotionsSidebar extends React.Component {
                     docked={true}
                 >
                     <div className="webcam">
-                        <EmotionAnalyser selected={this.state.emotion}/>
                         <h1 className="emotion-name">{this.state.emotion}</h1>
+                        <EmotionAnalyser selected={this.state.emotion} />
                     </div>
 
 

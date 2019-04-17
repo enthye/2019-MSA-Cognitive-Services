@@ -5,38 +5,38 @@ export default class EmotionAnalyser extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            updatedResult: "sad"
+            updatedResult: "none"
         }
     }
 
     updateResult(result) {
         switch (result) {
             case "happiness":
-                result = "happy"
+                result = "Happy"
                 break;
             case "sadness":
-                result = "sad"
+                result = "Sad"
                 break;
             case "neutral":
-                result = "neutral"
+                result = "Neutral"
                 break;
             case "anger":
-                result = "angry"
+                result = "Angry"
                 break;
             case "surprise":
-                result = "surprise"
+                result = "Surprise"
                 break;
             case "disgust":
-                result = "disgust"
+                result = "Disgust"
                 break;
             case "contempt":
-                result = "contempt"
+                result = "Contempt"
                 break;
             case "fear":
-                result = "scared"
+                result = "Scared"
                 break;
             default:
-                result = "none";
+                result = "None";
         }
 
         this.setState({
@@ -47,8 +47,10 @@ export default class EmotionAnalyser extends React.Component {
     render() {
         return (
             <div>
+                
                 <SelfRecord updateResult={(result) => { this.updateResult(result) }} />
                 <Result result={this.props.selected} updatedResult={this.state.updatedResult} />
+                
             </div>
         )
     }
@@ -56,31 +58,12 @@ export default class EmotionAnalyser extends React.Component {
 }
 
 class Result extends React.Component {
-
-    lowercaser = (string) => {
-        return string.toLowerCase()
-    }
-
     render() {
         return (
             <div>
-                <h1>{this.lowercaser(this.props.result)} {this.lowercaser(this.props.updatedResult)}</h1>
-                <h1>{this.lowercaser(this.props.result) === this.lowercaser(this.props.updatedResult) ? "✔️" : "❌"}</h1>
+                <h1>{this.props.result} {this.props.updatedResult}</h1>
+                <h1>{this.props.result === this.props.updatedResult ? "✔️" : "❌"}</h1>
             </div>
         )
     }
-    /*
-    var result = this.props.selected.toString().toLowerCase()
-    console.log(result, this.state.updatedResult)
-    
-    const result = props.result.toLowerCase()
-    const updatedResult = props.updatedResult.toLowerCase()
-    console.log(result, updatedResult)
-
-    return (
-        <div>
-            <h1>{result === updatedResult ? "✔️" : "❌"}</h1>
-        </div>
-    )
-    */
 }
