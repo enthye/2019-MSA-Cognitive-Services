@@ -13,8 +13,8 @@ export default class EmotionButtons extends React.Component {
                         <span role="img" aria-label="Neutral">😐</span> Neutral</button>
                     <button className="button" onClick={() => this.props.setEmotionText("Angry")}>
                         <span role="img" aria-label="Angry">😠</span> Angry</button>
-                    <button className="button" onClick={() => this.props.setEmotionText("Suprise")}>
-                        <span role="img" aria-label="Suprise">😮</span> Suprise</button>
+                    <button className="button" onClick={() => this.props.setEmotionText("Surprise")}>
+                        <span role="img" aria-label="Surprise">😮</span> Surprise</button>
                     <button className="button" onClick={() => this.props.setEmotionText("Disgust")}>
                         <span role="img" aria-label="Disgust">🤢</span> Disgust</button>
                     <button className="button" onClick={() => this.props.setEmotionText("Contempt")}>

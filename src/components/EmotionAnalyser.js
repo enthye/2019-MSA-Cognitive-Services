@@ -9,7 +9,7 @@ export default class EmotionAnalyser extends React.Component {
         }
     }
 
-    updateResult(result){
+    updateResult(result) {
         switch (result) {
             case "happiness":
                 result = "happy"
@@ -17,8 +17,20 @@ export default class EmotionAnalyser extends React.Component {
             case "sadness":
                 result = "sad"
                 break;
+            case "neutral":
+                result = "neutral"
+                break;
             case "anger":
                 result = "angry"
+                break;
+            case "surprise":
+                result = "surprise"
+                break;
+            case "disgust":
+                result = "disgust"
+                break;
+            case "contempt":
+                result = "contempt"
                 break;
             case "fear":
                 result = "scared"
@@ -49,8 +61,8 @@ class Result extends React.Component {
         return string.toLowerCase()
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <h1>{this.lowercaser(this.props.result)} {this.lowercaser(this.props.updatedResult)}</h1>
                 <h1>{this.lowercaser(this.props.result) === this.lowercaser(this.props.updatedResult) ? "✔️" : "❌"}</h1>
