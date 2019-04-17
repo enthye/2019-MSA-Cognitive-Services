@@ -5,7 +5,8 @@ export default class EmotionAnalyser extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            updatedResult: "none"
+            updatedResult: "None",
+            showHint: false
         }
     }
 
@@ -44,13 +45,24 @@ export default class EmotionAnalyser extends React.Component {
         })
     }
 
+    toggleHint = () => {
+        this.setState({
+            showHint: !this.state.showHint
+        });
+    }
+
     render() {
         return (
             <div>
-                
-                <SelfRecord updateResult={(result) => { this.updateResult(result) }} />
-                <Result result={this.props.selected} updatedResult={this.state.updatedResult} />
-                
+                <SelfRecord
+                    updateResult={(result) => { this.updateResult(result) }}
+                    showHint={() => { this.toggleHint() }}
+                />
+                <Result
+                    result={this.props.selected}
+                    updatedResult={this.state.updatedResult}
+                    showHint={this.state.showHint}
+                />
             </div>
         )
     }
@@ -58,11 +70,20 @@ export default class EmotionAnalyser extends React.Component {
 }
 
 class Result extends React.Component {
+
     render() {
+        var shown = {
+            display: this.props.showHint ? "block" : "none"
+        };
+
+        var hidden = {
+            display: this.props.showHint ? "none" : "block"
+        }
         return (
             <div>
-                <h1>{this.props.result} {this.props.updatedResult}</h1>
-                <h1>{this.props.result === this.props.updatedResult ? "✔️" : "❌"}</h1>
+                <h1 className="result">{this.props.result === this.props.updatedResult ? "✔️" : "❌"}</h1>
+                <h1 className="hint-result" style={shown}>{this.props.updatedResult}</h1>
+                <h1 style={hidden}> </h1>
             </div>
         )
     }

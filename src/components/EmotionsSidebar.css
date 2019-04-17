@@ -26,9 +26,23 @@
 .record, .hint{
     background-color: #ae93b9;
     border: 0;
-    margin: 20px;
+    margin: 10px;
     width: 30%;
     height: 50px;
     display:inline-block;
     font-size: 20px;
+}
+
+.result{
+    display: inline-block;
+    font-size: 40px;
+    font-family: "Verdana";
+    margin: 10px 0 0 0;
+}
+
+.hint-result{
+    display: inline-block;
+    font-size: 40px;
+    font-family: "Verdana";
+    margin: 10px 0 0 0;
 }

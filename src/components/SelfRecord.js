@@ -84,7 +84,7 @@ export default class SelfRecord extends React.Component {
                 />
                 <div className="button-group">
                     <button className="record" onClick={this.startRecording}>Start Recording!</button>
-                    <button className="hint" onClick={this.props.showHint}>Hint</button>
+                    <button className="hint" onClick={this.props.showHint}>Toggle Hint</button>
                 </div>
 
             </div>
