@@ -1,5 +1,6 @@
 # 2019-MSA-Cognitive-Services
 # Emotion Game
+https://emotion-game-2019.azurewebsites.net/
 1. Select an emotion for the Emotion List on the left side.
 2. Press "Start Recording" to being recording your face emotion.
 3. An indicator at the bottom will indicate if your face is matching the emotion selected.
