@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from 'react-sidebar'
 import './EmotionsSidebar.css'
 import EmotionButtons from './EmotionButtons';
-import SelfRecord from './SelfRecord'
+import EmotionAnalyser from './EmotionAnalyser';
 
 export default class EmotionsSidebar extends React.Component {
     constructor() {
@@ -32,7 +32,7 @@ export default class EmotionsSidebar extends React.Component {
                     docked={true}
                 >
                     <div className="webcam">
-                        <SelfRecord/>
+                        <EmotionAnalyser selected={this.state.emotion}/>
                         <h1 className="emotion-name">{this.state.emotion}</h1>
                     </div>
 

@@ -42,6 +42,7 @@ export default class SelfRecord extends React.Component {
                 response.json().then(data => {
                     if (data[0] != null) {
                         var emotion = this.emotionAnalyser(data[0].faceAttributes.emotion)
+                        this.props.updateResult(emotion)
                     }
 
                    //var happiness = (data[0] != null ? data[0].faceAttributes.emotions.happiness : 0)
