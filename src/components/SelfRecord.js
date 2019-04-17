@@ -15,13 +15,19 @@ export default class SelfRecord extends React.Component {
     // sets up a 0.2s timer to get screenshot from cam
     // converts from base64 to byte array
     // fetchs face info from face azure service
-    startRecording = () => {
-        this.isRecording = true
-        this.timerId = setInterval(() => {
+    toggleRecording = () => {
+        if (!this.isRecording) {
+            this.isRecording = true
+            this.timerId = setInterval(() => {
             const image = this.webcam.getScreenshot()
             const byteArrayImage = this.convertToByteArray(image)
             this.fetchData(byteArrayImage)
-        }, 10000)
+            }, 5000)
+        } else {
+            clearInterval(this.timerId)
+            this.isRecording=false
+        }
+        this.forceUpdate()
     }
 
     convertToByteArray = (image) => {
@@ -83,7 +89,8 @@ export default class SelfRecord extends React.Component {
                     videoConstraints={videoConstraints}
                 />
                 <div className="button-group">
-                    <button className="record" onClick={this.startRecording}>Start Recording!</button>
+                    <button className="record" onClick={this.toggleRecording} disabled={this.isRecording}>Start Recording</button>
+                    <button className="record" onClick={this.toggleRecording} disabled={!this.isRecording}>Stop Recording</button>
                     <button className="hint" onClick={this.props.showHint}>Toggle Hint</button>
                 </div>
 

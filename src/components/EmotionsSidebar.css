@@ -8,7 +8,7 @@
     font-family: "Verdana";
 }
 
-.button{
+.button, .help{
     background-color: #ae93b9;
     border: 0;
     margin: 10px;
