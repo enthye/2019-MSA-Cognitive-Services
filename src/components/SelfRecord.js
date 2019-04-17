@@ -1,5 +1,6 @@
 import React from 'react'
 import WebCam from 'react-webcam'
+import Popup from 'reactjs-popup'
 
 export default class SelfRecord extends React.Component {
     constructor(props) {
@@ -19,13 +20,13 @@ export default class SelfRecord extends React.Component {
         if (!this.isRecording) {
             this.isRecording = true
             this.timerId = setInterval(() => {
-            const image = this.webcam.getScreenshot()
-            const byteArrayImage = this.convertToByteArray(image)
-            this.fetchData(byteArrayImage)
+                const image = this.webcam.getScreenshot()
+                const byteArrayImage = this.convertToByteArray(image)
+                this.fetchData(byteArrayImage)
             }, 5000)
         } else {
             clearInterval(this.timerId)
-            this.isRecording=false
+            this.isRecording = false
         }
         this.forceUpdate()
     }
@@ -92,9 +93,39 @@ export default class SelfRecord extends React.Component {
                     <button className="record" onClick={this.toggleRecording} disabled={this.isRecording}>Start Recording</button>
                     <button className="record" onClick={this.toggleRecording} disabled={!this.isRecording}>Stop Recording</button>
                     <button className="hint" onClick={this.props.showHint}>Toggle Hint</button>
+                    <HelpPopup />
                 </div>
 
             </div>
         )
     }
 }
+
+const HelpPopup = () => (
+    <Popup
+        contentStyle={
+            {
+                background: "#ae93b9",
+                border: 0,
+            }
+        }
+        trigger={
+            <button className="help">
+                <span role="img" aria-label="Help">❓</span> Help</button>
+        }
+        position="right center"
+        modal
+        closeOnDocumentClick
+    >
+        <div className="popup">
+            <header>How to use:</header>
+            <ul>
+                <p>Select an emotion for the Emotion List on the left side.</p>
+                <p>Press "Start Recording" to being recording your face emotion.</p>
+                <p>An indicator at the bottom will indicate if your face is matching the emotion selected.</p>
+                <p>Toggle hint if you are struggling with trying to match an emotion!</p>
+                <p>Made by Kevin Xu (enthye) for the Microsoft Student Accelerator</p>
+            </ul>
+        </div>
+    </Popup>
+)

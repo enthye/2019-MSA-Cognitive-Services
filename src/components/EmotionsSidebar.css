@@ -8,7 +8,7 @@
     font-family: "Verdana";
 }
 
-.button, .help{
+.button{
     background-color: #ae93b9;
     border: 0;
     margin: 10px;
@@ -23,11 +23,11 @@
     text-align: center;
 }
 
-.record, .hint{
+.record, .hint,.help{
     background-color: #ae93b9;
     border: 0;
     margin: 10px;
-    width: 30%;
+    width: 20%;
     height: 50px;
     display:inline-block;
     font-size: 20px;
@@ -45,4 +45,11 @@
     font-size: 40px;
     font-family: "Verdana";
     margin: 10px 0 0 0;
+}
+
+.popup{
+    background-color: #ae93b9;
+    border: 0;
+    font-size: 20px;
+    font-family: "Verdana"
 }

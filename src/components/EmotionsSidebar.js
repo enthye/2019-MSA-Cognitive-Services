@@ -27,8 +27,6 @@ export default class EmotionsSidebar extends React.Component {
                         <div>
                             <h1 className="title">Emotion List</h1>
                             <EmotionButtons setEmotionText={(emotion) => this.setEmotionText(emotion)} />
-                            <button className="help" onClick={() => }>
-                            <span role="img" aria-label="Help">❓</span> Help</button>
                         </div>
                     }
                     docked={true}
@@ -42,3 +40,4 @@ export default class EmotionsSidebar extends React.Component {
         )
     }
 }
+
