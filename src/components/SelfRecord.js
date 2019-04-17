@@ -21,6 +21,11 @@ export default class SelfRecord extends React.Component {
             this.isRecording = true
             this.timerId = setInterval(() => {
                 const image = this.webcam.getScreenshot()
+                if (image == null) {
+                    clearInterval(this.timerId)
+                    this.isRecording = false
+                    return
+                }
                 const byteArrayImage = this.convertToByteArray(image)
                 this.fetchData(byteArrayImage)
             }, 5000)
@@ -81,14 +86,15 @@ export default class SelfRecord extends React.Component {
         return (
             <div>
                 <div className="webcam">
-                <WebCam
-                    audio={false}
-                    width={600}
-                    height={400}
-                    ref={this.setRef}
-                    screenshotFormat="image/jpeg"
-                    videoConstraints={videoConstraints}
-                />
+                    <WebCam
+                        audio={false}
+                        width={600}
+                        height={400}
+                        ref={this.setRef}
+                        screenshotFormat="image/jpeg"
+                        videoConstraints={videoConstraints}
+                        onUserMediaError={noCamError}
+                    />
                 </div>
                 <div className="button-group">
                     <button className="record" onClick={this.toggleRecording} disabled={this.isRecording}>Start Recording</button>
@@ -130,3 +136,8 @@ const HelpPopup = () => (
         </div>
     </Popup>
 )
+
+function noCamError() {
+    console.log("ERROR")
+    alert("ERROR: This app will not work as you do not have a working camera.")
+}
