@@ -121,7 +121,7 @@ const HelpPopup = () => (
             <header>How to use:</header>
             <ul>
                 <p>Select an emotion for the Emotion List on the left side.</p>
-                <p>Press "Start Recording" to being recording your face emotion.</p>
+                <p>Press "Start Recording" to begin recording your face emotion.</p>
                 <p>An indicator at the bottom will indicate if your face is matching the emotion selected.</p>
                 <p>Toggle hint if you are struggling with trying to match an emotion!</p>
                 <p>Made by Kevin Xu (enthye) for the Microsoft Student Accelerator</p>
