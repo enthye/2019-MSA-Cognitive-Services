@@ -80,8 +80,8 @@ export default class SelfRecord extends React.Component {
 
         return (
             <div>
+                <div className="webcam">
                 <WebCam
-                    className="webcam"
                     audio={false}
                     width={600}
                     height={400}
@@ -89,6 +89,7 @@ export default class SelfRecord extends React.Component {
                     screenshotFormat="image/jpeg"
                     videoConstraints={videoConstraints}
                 />
+                </div>
                 <div className="button-group">
                     <button className="record" onClick={this.toggleRecording} disabled={this.isRecording}>Start Recording</button>
                     <button className="record" onClick={this.toggleRecording} disabled={!this.isRecording}>Stop Recording</button>
