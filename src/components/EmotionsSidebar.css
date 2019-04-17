@@ -21,6 +21,7 @@
 
 .webcam{
     text-align: center;
+    position: relative;
 }
 
 .record, .hint,.help{
